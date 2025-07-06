@@ -1,43 +1,29 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+using GraphViewPlayer;
+
 public class SimpleRuntimeUI : MonoBehaviour
 {
-    private Button _button;
-    private Toggle _toggle;
+    private GraphTesting _graph;
+    private BaseNode _node;
 
-    private int _clickCount;
-
-    //Add logic that interacts with the UI controls in the `OnEnable` methods
     private void OnEnable()
     {
         // The UXML is already instantiated by the UIDocument component
         var uiDocument = GetComponent<UIDocument>();
 
-        _button = uiDocument.rootVisualElement.Q("button") as Button;
-        _toggle = uiDocument.rootVisualElement.Q("toggle") as Toggle;
+        _graph = uiDocument.rootVisualElement.Q("GraphTesting") as GraphTesting;
 
-        _button.RegisterCallback<ClickEvent>(PrintClickMessage);
+        _node = new BaseNode { Title = "New Logic Node" };
+        _node.style.left = 100;
+        _node.style.top = 100;
 
-        var _inputFields = uiDocument.rootVisualElement.Q("input-message");
-        _inputFields.RegisterCallback<ChangeEvent<string>>(InputMessage);
+        _graph.AddElement(_node);
+
     }
 
     private void OnDisable()
     {
-        _button.UnregisterCallback<ClickEvent>(PrintClickMessage);
-    }
-
-    private void PrintClickMessage(ClickEvent evt)
-    {
-        ++_clickCount;
-
-        Debug.Log($"{"button"} was clicked!" +
-                (_toggle.value ? " Count: " + _clickCount : ""));
-    }
-
-    public static void InputMessage(ChangeEvent<string> evt)
-    {
-        Debug.Log($"{evt.newValue} -> {evt.target}");
     }
 }
