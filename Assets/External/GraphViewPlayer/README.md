@@ -1,0 +1,2 @@
+This folder includes a modified version of [GraphViewPlayer](https://github.com/ShortSleeveStudio/GraphViewPlayer) by ShortSleeveStudio.
+Minor changes were made for compatibility and integration purposes.
