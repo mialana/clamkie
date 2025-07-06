@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+
+using GraphWindow;
 
 public class GraphAssetBehavior : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private GraphBase _graph;
+
+    private void OnEnable()
     {
-        
+        // The UXML is already instantiated by the UIDocument component
+        var uiDocument = GetComponent<UIDocument>();
+
+        _graph = uiDocument.rootVisualElement.Q("GraphBase") as GraphBase;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
     }
 }
