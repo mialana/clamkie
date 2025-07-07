@@ -1,7 +1,9 @@
 {
     "name": "GraphWindow",
     "rootNamespace": "GraphWindow",
-    "references": [],
+    "references": [
+        "GUID:f70a7115c4d694b79bc980ce22e4582a"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

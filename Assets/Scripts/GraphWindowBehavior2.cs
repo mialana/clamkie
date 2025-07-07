@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SimpleRuntimeUI : MonoBehaviour
+public class GraphWindowBehavior2 : MonoBehaviour
 {
     private Button _button;
     private Toggle _toggle;
@@ -14,13 +14,7 @@ public class SimpleRuntimeUI : MonoBehaviour
         // The UXML is already instantiated by the UIDocument component
         var uiDocument = GetComponent<UIDocument>();
 
-        _button = uiDocument.rootVisualElement.Q("button") as Button;
-        _toggle = uiDocument.rootVisualElement.Q("toggle") as Toggle;
-
-        _button.RegisterCallback<ClickEvent>(PrintClickMessage);
-
-        var _inputFields = uiDocument.rootVisualElement.Q("input-message");
-        _inputFields.RegisterCallback<ChangeEvent<string>>(InputMessage);
+        _button = uiDocument.rootVisualElement.Q("Button") as Button;
     }
 
     private void OnDisable()
@@ -34,10 +28,5 @@ public class SimpleRuntimeUI : MonoBehaviour
 
         Debug.Log($"{"button"} was clicked!" +
                 (_toggle.value ? " Count: " + _clickCount : ""));
-    }
-
-    public static void InputMessage(ChangeEvent<string> evt)
-    {
-        Debug.Log($"{evt.newValue} -> {evt.target}");
     }
 }

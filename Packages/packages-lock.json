@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.graphviewplayer": {
-      "version": "file:/Users/Dev/Downloads/GraphViewPlayer",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.ext.nunit": {
       "version": "2.0.5",
       "depth": 2,
