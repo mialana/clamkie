@@ -5,20 +5,10 @@ using UnityEngine.UIElements;
 namespace GraphViewPlayer
 {
     [UxmlElement]
+    [HideInInspector]
     public partial class GraphToolBar : VisualElement
     {
         private static StyleSheet s_DefaultStyle;
-        private static StyleSheet DefaultStyle
-        {
-            get
-            {
-                if (s_DefaultStyle == null)
-                {
-                    s_DefaultStyle = Resources.Load<StyleSheet>("GraphToolbarStyle");
-                }
-                return s_DefaultStyle;
-            }
-        }
 
         private readonly Dictionary<int, Button> m_Buttons;
 
@@ -38,7 +28,17 @@ namespace GraphViewPlayer
 
             m_Buttons.Add(position, b);
         }
+
+        private static StyleSheet DefaultStyle
+        {
+            get
+            {
+                if (s_DefaultStyle == null)
+                {
+                    s_DefaultStyle = Resources.Load<StyleSheet>("GraphToolbarStyle");
+                }
+                return s_DefaultStyle;
+            }
+        }
     }
-
-
 }

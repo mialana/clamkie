@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 namespace GraphViewPlayer
 {
     [UxmlElement]
+    [HideInInspector]
     public partial class SphereNode : BaseNode
     {
         private GameObject _Sphere;

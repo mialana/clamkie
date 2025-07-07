@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 namespace GraphViewPlayer
 {
     [UxmlElement]
+    [HideInInspector]
     public partial class CubeNode : BaseNode
     {
         private GameObject _Cube;
